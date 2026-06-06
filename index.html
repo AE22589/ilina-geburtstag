@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Überraschung für Ilina ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Countdown-Seite -->
+
+    <div id="countdown-screen">
+
+        <div class="sterne"></div>
+
+        <div class="countdown-box">
+
+            <h1>✨ Eine Überraschung wartet auf dich ✨</h1>
+
+            <p>
+                Liebe Ilina,
+            </p>
+
+            <p>
+                eine kleine Überraschung wartet auf dich.
+            </p>
+
+            <p>
+                Aber jedes Abenteuer beginnt mit etwas Geduld. ❤️
+            </p>
+
+            <h2>Freischaltung am</h2>
+
+            <h3>21.06.2026 • 00:00 Uhr</h3>
+
+            <div id="countdown">
+                Lädt...
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Hauptinhalt -->
+
+    <div id="main-content" style="display:none;">
+
+        <div class="container">
+
+            <h1>🎂 Geburtstags-Schatzsuche 🎂</h1>
+
+            <p>
+                Liebe Ilina,
+            </p>
+
+            <p>
+                beantworte die folgenden Fragen und finde den Schatz. ❤️
+            </p>
+
+            <div class="quiz">
+
+                <p><strong>1. Lieblingsblume?</strong></p>
+                <input type="text" id="antwort1">
+
+                <p><strong>2. Ort unseres ersten Treffens?</strong></p>
+                <input type="text" id="antwort2">
+
+                <p><strong>3. Lieblings-Melonensorte?</strong></p>
+                <input type="text" id="antwort3">
+
+                <p><strong>4. Was hat meine Mama dir geschenkt?</strong></p>
+                <input type="text" id="antwort4">
+
+                <p><strong>5. Welches "Haustier" hast du von Anne bekommen?</strong></p>
+                <input type="text" id="antwort5">
+
+                <p><strong>6. Anne nennt dich gerne "Mein ...?"</strong></p>
+                <input type="text" id="antwort6">
+
+                <br><br>
+
+                <button onclick="pruefen()">
+                    Antworten prüfen
+                </button>
+
+            </div>
+
+            <div id="truhe" style="display:none;">
+
+                <h2>🎉 Richtig gelöst, Ilina! 🎉</h2>
+
+                <p>
+                    Du hast alle Fragen richtig beantwortet und den Schatz gefunden.
+                </p>
+
+                <img
+                    id="truheBild"
+                    src="truhe-geschlossen.png"
+                    alt="Schatztruhe"
+                    class="truhe-bild"
+                    onclick="oeffnen()">
+
+                <p>
+                    Klicke auf die Schatztruhe, um dein Geschenk zu entdecken. ❤️
+                </p>
+
+            </div>
+
+            <div id="geschenk" style="display:none;">
+
+                <h2>🎉 Überraschung! 🎉</h2>
+
+                <p>
+                    Hinter dieser Schatztruhe versteckt sich dein Geburtstagsgeschenk:
+                </p>
+
+                <h3>🌊 Ein gemeinsames Wochenende am Meer 🌊</h3>
+
+                <p>
+                    Du darfst dir einen Ort an der holländischen Küste aussuchen.
+                </p>
+
+                <p>
+                    Pack schon mal deine Strandtasche ein. ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

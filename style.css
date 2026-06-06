@@ -1,0 +1,143 @@
+/* ---------- Countdown-Seite ---------- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1026;
+    color: white;
+}
+
+#countdown-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-box {
+    text-align: center;
+    z-index: 10;
+    max-width: 700px;
+    padding: 30px;
+}
+
+.countdown-box h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.countdown-box h2 {
+    margin-top: 40px;
+}
+
+#countdown {
+    margin-top: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* ---------- Sterne ---------- */
+
+.sterne {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 10% 20%, white 2px, transparent 3px),
+        radial-gradient(circle at 20% 70%, white 2px, transparent 3px),
+        radial-gradient(circle at 30% 40%, white 2px, transparent 3px),
+        radial-gradient(circle at 40% 80%, white 2px, transparent 3px),
+        radial-gradient(circle at 50% 15%, white 2px, transparent 3px),
+        radial-gradient(circle at 60% 55%, white 2px, transparent 3px),
+        radial-gradient(circle at 70% 30%, white 2px, transparent 3px),
+        radial-gradient(circle at 80% 65%, white 2px, transparent 3px),
+        radial-gradient(circle at 90% 25%, white 2px, transparent 3px);
+
+    animation: funkeln 4s infinite alternate;
+    opacity: 0.8;
+}
+
+@keyframes funkeln {
+
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Hauptseite ---------- */
+
+#main-content {
+    color: black;
+}
+
+.container {
+    background: white;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.container h1 {
+    color: #3b4cca;
+}
+
+input {
+    padding: 10px;
+    width: 280px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ---------- Schatztruhe ---------- */
+
+.truhe-bild {
+    width: 280px;
+    cursor: pointer;
+
+    animation: schweben 2.5s ease-in-out infinite;
+
+    transition: transform 0.6s ease;
+}
+
+.truhe-bild:hover {
+    transform: scale(1.05);
+}
+
+.geoeffnet {
+    animation: none;
+    transform: scale(1.15);
+}
+
+@keyframes schweben {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
