@@ -54,7 +54,7 @@ body {
     color: #ffd700;
 }
 
-/* ---------- Sterne ---------- */
+/* ---------- Sternenhimmel ---------- */
 
 .sterne {
     position: absolute;
@@ -92,9 +92,61 @@ body {
         radial-gradient(circle at 92% 8%, white 2px, transparent 3px);
 
     animation: funkeln 4s infinite alternate;
-
     opacity: 0.9;
 }
+
+/* ---------- Blinkende Sterne ---------- */
+
+.stern {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 15px white;
+
+    animation: blinken infinite alternate;
+
+    z-index: 2;
+}
+
+@keyframes blinken {
+
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.8);
+    }
+}
+
+.s1 { top: 10%; left: 15%; animation-duration: 2s; }
+.s2 { top: 20%; left: 70%; animation-duration: 3s; }
+.s3 { top: 30%; left: 40%; animation-duration: 2.5s; }
+.s4 { top: 60%; left: 20%; animation-duration: 4s; }
+.s5 { top: 75%; left: 80%; animation-duration: 3.5s; }
+
+.s6 { top: 15%; left: 90%; animation-duration: 2.8s; }
+.s7 { top: 50%; left: 60%; animation-duration: 2.2s; }
+.s8 { top: 85%; left: 35%; animation-duration: 3.8s; }
+.s9 { top: 40%; left: 10%; animation-duration: 2.7s; }
+.s10 { top: 65%; left: 50%; animation-duration: 4.2s; }
+
+.s11 { top: 5%; left: 55%; animation-duration: 3.1s; }
+.s12 { top: 25%; left: 85%; animation-duration: 2.4s; }
+.s13 { top: 45%; left: 75%; animation-duration: 3.7s; }
+.s14 { top: 70%; left: 5%; animation-duration: 2.9s; }
+.s15 { top: 90%; left: 60%; animation-duration: 4.5s; }
 
 @keyframes funkeln {
 
