@@ -7,9 +7,16 @@
 }
 
 body {
+
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #08111f;
+
     color: white;
 }
 
@@ -22,7 +29,9 @@ body {
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     position: relative;
@@ -44,6 +53,7 @@ body {
 .sterne {
 
     position: absolute;
+
     inset: 0;
 
     background:
@@ -90,26 +100,32 @@ body {
 @keyframes blinken {
 
     from {
+
         opacity: 0.2;
-        transform: scale(0.8);
+
+        transform:
+            scale(0.8);
     }
 
     to {
+
         opacity: 1;
-        transform: scale(1.8);
+
+        transform:
+            scale(1.8);
     }
 }
 
-.s1 { top: 10%; left: 15%; animation-duration: 2s; }
-.s2 { top: 18%; left: 70%; animation-duration: 3s; }
-.s3 { top: 30%; left: 40%; animation-duration: 2.5s; }
-.s4 { top: 60%; left: 20%; animation-duration: 4s; }
-.s5 { top: 75%; left: 80%; animation-duration: 3.5s; }
+.s1  { top: 10%; left: 15%; animation-duration: 2s; }
+.s2  { top: 18%; left: 70%; animation-duration: 3s; }
+.s3  { top: 30%; left: 40%; animation-duration: 2.5s; }
+.s4  { top: 60%; left: 20%; animation-duration: 4s; }
+.s5  { top: 75%; left: 80%; animation-duration: 3.5s; }
 
-.s6 { top: 15%; left: 90%; animation-duration: 2.8s; }
-.s7 { top: 50%; left: 60%; animation-duration: 2.2s; }
-.s8 { top: 85%; left: 35%; animation-duration: 3.8s; }
-.s9 { top: 40%; left: 10%; animation-duration: 2.7s; }
+.s6  { top: 15%; left: 90%; animation-duration: 2.8s; }
+.s7  { top: 50%; left: 60%; animation-duration: 2.2s; }
+.s8  { top: 85%; left: 35%; animation-duration: 3.8s; }
+.s9  { top: 40%; left: 10%; animation-duration: 2.7s; }
 .s10 { top: 65%; left: 50%; animation-duration: 4.2s; }
 
 .s11 { top: 5%; left: 55%; animation-duration: 3.1s; }
@@ -141,7 +157,8 @@ body {
 
     border-radius: 999px;
 
-    transform: rotate(-35deg);
+    transform:
+        rotate(-35deg);
 
     animation:
         sternschnuppe 5s linear infinite;
@@ -213,7 +230,8 @@ body {
 
         opacity: 0;
 
-        transform:
+
+                transform:
             translateY(20px);
     }
 
@@ -431,11 +449,13 @@ body {
 
     border-radius: 14px;
 
-    border: 1px solid #d9d9d9;
+    border:
+        1px solid #d9d9d9;
 
     font-size: 16px;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 }
 
 .frage input:focus {
@@ -507,7 +527,8 @@ button:hover {
 
 .truhe-bild {
 
-    width: min(320px, 90%);
+    width:
+        min(320px, 90%);
 
     cursor: pointer;
 
@@ -599,6 +620,40 @@ button:hover {
 }
 
 /* ================================= */
+/* STRANDFOTO */
+/* ================================= */
+
+.beach-foto {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    display: block;
+
+    margin: 30px auto 0 auto;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.2);
+}
+
+.foto-text {
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-style: italic;
+
+    font-size: 1.1rem;
+
+    color: #555;
+}
+
+/* ================================= */
 /* HANDY */
 /* ================================= */
 
@@ -631,6 +686,7 @@ button:hover {
     .countdown-box h2 {
 
         margin-top: 10px;
+
         margin-bottom: 0;
     }
 
@@ -679,6 +735,16 @@ button:hover {
 
         padding: 20px;
     }
+
+    .beach-foto {
+
+        border-radius: 18px;
+    }
+
+    .foto-text {
+
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 450px) {
@@ -706,5 +772,10 @@ button:hover {
     .countdown-card {
 
         padding: 6px 1px;
+    }
+
+    .foto-text {
+
+        font-size: 0.9rem;
     }
 }
