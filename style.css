@@ -582,56 +582,107 @@ button:hover {
 
 @media (max-width: 700px) {
 
-    .container {
+    #countdown-screen {
 
-        padding: 22px;
+        padding: 20px 10px;
     }
 
-    .countdown-grid {
+    .countdown-box {
 
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
+        width: 100%;
     }
 
     .countdown-box h1 {
 
-        font-size:
-            clamp(
-                2rem,
-                8vw,
-                3.5rem
-            );
+        font-size: 2rem;
+
+        margin-bottom: 15px;
     }
 
     .einleitung {
 
-        font-size: 1rem;
+        font-size: 0.95rem;
+
+        margin: 8px auto;
+    }
+
+    .countdown-box h2 {
+
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
+    .countdown-box h3 {
+
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .countdown-grid {
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 8px;
+
+        margin-top: 20px;
+    }
+
+    .countdown-card {
+
+        padding: 12px 6px;
+
+        border-radius: 14px;
     }
 
     .zahl {
 
-        font-size: 3rem;
+        font-size: 1.8rem;
+    }
+
+    .label {
+
+        font-size: 0.65rem;
+
+        margin-top: 5px;
+    }
+
+    .container {
+
+        padding: 22px;
     }
 }
 
 @media (max-width: 450px) {
 
-    .countdown-grid {
+    .countdown-box h1 {
 
-        grid-template-columns:
-            1fr;
+        font-size: 1.7rem;
+    }
+
+    .einleitung {
+
+        font-size: 0.9rem;
     }
 
     .zahl {
 
-        font-size: 3.2rem;
+        font-size: 1.6rem;
+    }
+
+    .label {
+
+        font-size: 0.6rem;
     }
 
     .countdown-card {
 
-        padding: 20px;
+        padding: 10px 4px;
+    }
+
+    .countdown-grid {
+
+        gap: 6px;
     }
 }
