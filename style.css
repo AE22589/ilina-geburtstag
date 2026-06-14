@@ -1,101 +1,67 @@
-/* ---------- Countdown-Seite ---------- */
+/* ================================= */
+/* GRUNDEINSTELLUNGEN */
+/* ================================= */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b1026;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08111f;
     color: white;
 }
 
+/* ================================= */
+/* COUNTDOWN SCREEN */
+/* ================================= */
+
 #countdown-screen {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     position: relative;
+
     overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #1a2747 0%,
+            #08111f 70%
+        );
 }
 
-.countdown-box {
-    text-align: center;
-    z-index: 10;
-    max-width: 1000px;
-    width: 90%;
-    padding: 30px;
-}
-
-.countdown-box h1 {
-
-    font-size: clamp(2rem, 6vw, 5rem);
-
-    line-height: 1.2;
-
-    margin-bottom: 30px;
-
-    text-align: center;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 25px rgba(255,215,0,0.4);
-}
-
-.countdown-box h2 {
-    margin-top: 40px;
-}
-
-.countdown-box h3 {
-    font-size: 1.5rem;
-}
-
-#countdown {
-    margin-top: 25px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffd700;
-}
-
-/* ---------- Sternenhimmel ---------- */
+/* ================================= */
+/* STERNENHIMMEL */
+/* ================================= */
 
 .sterne {
     position: absolute;
     inset: 0;
 
     background:
-        radial-gradient(circle at 3% 10%, white 2px, transparent 3px),
-        radial-gradient(circle at 8% 65%, white 2px, transparent 3px),
-        radial-gradient(circle at 12% 25%, white 3px, transparent 4px),
-        radial-gradient(circle at 18% 80%, white 2px, transparent 3px),
-        radial-gradient(circle at 22% 45%, white 2px, transparent 3px),
-        radial-gradient(circle at 28% 15%, white 3px, transparent 4px),
-        radial-gradient(circle at 35% 70%, white 2px, transparent 3px),
-        radial-gradient(circle at 40% 35%, white 2px, transparent 3px),
-        radial-gradient(circle at 48% 8%, white 3px, transparent 4px),
-        radial-gradient(circle at 55% 55%, white 2px, transparent 3px),
-        radial-gradient(circle at 60% 22%, white 2px, transparent 3px),
-        radial-gradient(circle at 68% 78%, white 3px, transparent 4px),
-        radial-gradient(circle at 72% 42%, white 2px, transparent 3px),
-        radial-gradient(circle at 78% 15%, white 2px, transparent 3px),
-        radial-gradient(circle at 82% 62%, white 3px, transparent 4px),
-        radial-gradient(circle at 88% 28%, white 2px, transparent 3px),
-        radial-gradient(circle at 94% 82%, white 2px, transparent 3px),
-        radial-gradient(circle at 97% 18%, white 3px, transparent 4px),
+        radial-gradient(circle at 5% 10%, white 2px, transparent 3px),
+        radial-gradient(circle at 10% 60%, white 2px, transparent 3px),
+        radial-gradient(circle at 20% 20%, white 3px, transparent 4px),
+        radial-gradient(circle at 30% 80%, white 2px, transparent 3px),
+        radial-gradient(circle at 40% 40%, white 2px, transparent 3px),
+        radial-gradient(circle at 50% 15%, white 3px, transparent 4px),
+        radial-gradient(circle at 60% 70%, white 2px, transparent 3px),
+        radial-gradient(circle at 70% 30%, white 2px, transparent 3px),
+        radial-gradient(circle at 80% 50%, white 3px, transparent 4px),
+        radial-gradient(circle at 90% 20%, white 2px, transparent 3px);
 
-        radial-gradient(circle at 6% 40%, white 2px, transparent 3px),
-        radial-gradient(circle at 14% 90%, white 2px, transparent 3px),
-        radial-gradient(circle at 25% 60%, white 3px, transparent 4px),
-        radial-gradient(circle at 32% 25%, white 2px, transparent 3px),
-        radial-gradient(circle at 45% 90%, white 2px, transparent 3px),
-        radial-gradient(circle at 58% 5%, white 3px, transparent 4px),
-        radial-gradient(circle at 63% 35%, white 2px, transparent 3px),
-        radial-gradient(circle at 75% 88%, white 2px, transparent 3px),
-        radial-gradient(circle at 86% 50%, white 3px, transparent 4px),
-        radial-gradient(circle at 92% 8%, white 2px, transparent 3px);
-
-    animation: funkeln 4s infinite alternate;
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
-/* ---------- Blinkende Sterne ---------- */
+/* ================================= */
+/* BLINKENDE STERNE */
+/* ================================= */
 
 .stern {
     position: absolute;
@@ -103,16 +69,17 @@ body {
     width: 4px;
     height: 4px;
 
-    background: white;
-
     border-radius: 50%;
 
-    box-shadow:
-        0 0 5px white,
-        0 0 10px white,
-        0 0 15px white;
+    background: white;
 
-    animation: blinken infinite alternate;
+    box-shadow:
+        0 0 6px white,
+        0 0 12px white,
+        0 0 18px white;
+
+    animation:
+        blinken 2s infinite alternate;
 
     z-index: 2;
 }
@@ -121,7 +88,7 @@ body {
 
     from {
         opacity: 0.2;
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
 
     to {
@@ -131,7 +98,7 @@ body {
 }
 
 .s1 { top: 10%; left: 15%; animation-duration: 2s; }
-.s2 { top: 20%; left: 70%; animation-duration: 3s; }
+.s2 { top: 18%; left: 70%; animation-duration: 3s; }
 .s3 { top: 30%; left: 40%; animation-duration: 2.5s; }
 .s4 { top: 60%; left: 20%; animation-duration: 4s; }
 .s5 { top: 75%; left: 80%; animation-duration: 3.5s; }
@@ -148,82 +115,523 @@ body {
 .s14 { top: 70%; left: 5%; animation-duration: 2.9s; }
 .s15 { top: 90%; left: 60%; animation-duration: 4.5s; }
 
-@keyframes funkeln {
+/* ================================= */
+/* STERNSCHNUPPE */
+/* ================================= */
+
+.shooting-star {
+
+    position: absolute;
+
+    top: -50px;
+    right: -250px;
+
+    width: 220px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to left,
+            white,
+            transparent
+        );
+
+    border-radius: 999px;
+
+    transform: rotate(-35deg);
+
+    animation:
+        sternschnuppe 5s linear infinite;
+
+    z-index: 3;
+}
+
+@keyframes sternschnuppe {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0,0)
+            rotate(-35deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translate(-900px,500px)
+            rotate(-35deg);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-900px,500px)
+            rotate(-35deg);
+    }
+}
+
+/* ================================= */
+/* COUNTDOWN BOX */
+/* ================================= */
+
+.countdown-box {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1100px, 92%);
+
+    text-align: center;
+
+    animation:
+        einblenden 1.5s ease;
+}
+
+@keyframes einblenden {
 
     from {
-        opacity: 0.5;
+        opacity: 0;
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* ---------- Hauptseite ---------- */
+.countdown-box h1 {
 
-#main-content {
-    color: black;
+    font-size:
+        clamp(2rem, 6vw, 5rem);
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.5),
+        0 0 30px rgba(255,215,0,0.25);
 }
 
+.einleitung {
+
+    max-width: 700px;
+
+    margin: 12px auto;
+
+    font-size: 1.1rem;
+
+    color:
+        rgba(255,255,255,0.9);
+}
+
+.countdown-box h2 {
+
+    margin-top: 40px;
+}
+
+.countdown-box h3 {
+
+    color: #ffd54f;
+}
+
+/* ================================= */
+/* COUNTDOWN KARTEN */
+/* ================================= */
+
+.countdown-grid {
+
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(160px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+.countdown-card {
+
+    background:
+        rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 24px;
+
+    padding: 25px 15px;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.05),
+        0 0 40px rgba(255,215,0,0.08);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.countdown-card:hover {
+
+    transform:
+        translateY(-6px);
+}
+
+.zahl {
+
+    font-size:
+        clamp(2.5rem, 8vw, 4.5rem);
+
+    font-weight: bold;
+
+    color: #ffd54f;
+
+    text-shadow:
+        0 0 12px rgba(255,215,0,0.5);
+}
+
+.label {
+
+    margin-top: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,255,255,0.8);
+}
+
+/* ================================= */
+/* HAUPTINHALT */
+/* ================================= */
+
+#main-content {
+
+    color: #222;
+
+    padding: 40px 15px;
+
+    background:
+        linear-gradient(
+            #f4f7fb,
+            #ffffff
+        );
+}
+
+/* ================================= */
+/* CONTAINER */
+/* ================================= */
+
 .container {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
     background: white;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    text-align: center;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.12);
+
+    animation:
+        einblenden 0.8s ease;
 }
 
 .container h1 {
-    color: #3b4cca;
+
+    text-align: center;
+
+    color: #243b63;
+
+    margin-bottom: 25px;
 }
 
-input {
-    padding: 10px;
-    width: 280px;
-    max-width: 90%;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+.intro {
+
+    text-align: center;
+
+    color: #555;
 }
+
+/* ================================= */
+/* FRAGEN */
+/* ================================= */
+
+.frage {
+
+    margin-top: 28px;
+}
+
+.frage label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    color: #243b63;
+}
+
+.frage input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid #d9d9d9;
+
+    font-size: 16px;
+
+    transition:
+        all 0.3s ease;
+}
+
+.frage input:focus {
+
+    outline: none;
+
+    border-color: #4f7cff;
+
+    box-shadow:
+        0 0 12px
+        rgba(79,124,255,0.25);
+}
+
+/* ================================= */
+/* BUTTON */
+/* ================================= */
 
 button {
-    padding: 12px 24px;
-    font-size: 16px;
+
+    margin-top: 30px;
+
+    width: 100%;
+
+    padding: 15px;
+
     border: none;
-    border-radius: 10px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f7cff,
+            #3558d6
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
     cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(53,88,214,0.35);
+}
+
+/* ================================= */
+/* SCHATZTRUHE */
+/* ================================= */
+
+#truhe {
+
+    text-align: center;
+
+    margin-top: 50px;
 }
 
 .truhe-bild {
-    width: 280px;
-    max-width: 90%;
+
+    width:
+        min(320px, 90%);
+
     cursor: pointer;
-    animation: schweben 2.5s ease-in-out infinite;
-    transition: transform 0.6s ease;
+
+    margin-top: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,215,0,0.5)
+        );
+
+    animation:
+        schweben 2.5s ease-in-out infinite;
+
+    transition:
+        transform 0.4s ease;
 }
 
 .truhe-bild:hover {
-    transform: scale(1.05);
-}
 
-.geoeffnet {
-    animation: none;
-    transform: scale(1.15);
+    transform:
+        scale(1.05);
 }
 
 @keyframes schweben {
 
     0% {
-        transform: translateY(0px);
+
+        transform:
+            translateY(0px);
     }
 
     50% {
-        transform: translateY(-12px);
+
+        transform:
+            translateY(-12px);
     }
 
     100% {
-        transform: translateY(0px);
+
+        transform:
+            translateY(0px);
+    }
+}
+
+.truhe-text {
+
+    margin-top: 15px;
+
+    color: #666;
+}
+
+/* ================================= */
+/* GESCHENK */
+/* ================================= */
+
+#geschenk {
+
+    margin-top: 60px;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8eb,
+            #fff3d2
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,215,0,0.15);
+}
+
+#geschenk h2 {
+
+    color: #c58a00;
+}
+
+#geschenk h3 {
+
+    color: #2c5b96;
+
+    margin-top: 25px;
+}
+
+/* ================================= */
+/* HANDY */
+/* ================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        padding: 22px;
+    }
+
+    .countdown-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+    .countdown-box h1 {
+
+        font-size:
+            clamp(
+                2rem,
+                8vw,
+                3.5rem
+            );
+    }
+
+    .einleitung {
+
+        font-size: 1rem;
+    }
+
+    .zahl {
+
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .countdown-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .zahl {
+
+        font-size: 3.2rem;
+    }
+
+    .countdown-card {
+
+        padding: 20px;
     }
 }

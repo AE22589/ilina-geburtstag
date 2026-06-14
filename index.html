@@ -11,12 +11,15 @@
 
 <body>
 
-    <!-- Countdown-Seite -->
+    <!-- ===================== -->
+    <!-- Countdown -->
+    <!-- ===================== -->
 
     <div id="countdown-screen">
 
         <div class="sterne"></div>
 
+        <!-- Blinkende Sterne -->
         <div class="stern s1"></div>
         <div class="stern s2"></div>
         <div class="stern s3"></div>
@@ -33,6 +36,9 @@
         <div class="stern s14"></div>
         <div class="stern s15"></div>
 
+        <!-- Sternschnuppe -->
+        <div class="shooting-star"></div>
+
         <div class="countdown-box">
 
             <h1>
@@ -40,76 +46,188 @@
                 wartet auf dich ✨
             </h1>
 
-            <p>Liebe Ilina,</p>
-
-            <p>
-                eine kleine Überraschung wartet auf dich.
+            <p class="einleitung">
+                Liebe Ilina,
             </p>
 
-            <p>
-                Aber jedes Abenteuer beginnt mit etwas Geduld. ❤️
+            <p class="einleitung">
+                eine kleine Überraschung wartet bereits auf dich.
             </p>
 
-            <h2>Freischaltung am</h2>
+            <p class="einleitung">
+                Doch jedes Abenteuer beginnt mit etwas Geduld. ❤️
+            </p>
+
+            <h2>Freischaltung</h2>
 
             <h3>21.06.2026 • 00:00 Uhr</h3>
 
-            <div id="countdown">
-                Lädt...
+            <div class="countdown-grid">
+
+                <div class="countdown-card">
+
+                    <div id="tage" class="zahl">0</div>
+
+                    <div class="label">
+                        Tage
+                    </div>
+
+                </div>
+
+                <div class="countdown-card">
+
+                    <div id="stunden" class="zahl">0</div>
+
+                    <div class="label">
+                        Stunden
+                    </div>
+
+                </div>
+
+                <div class="countdown-card">
+
+                    <div id="minuten" class="zahl">0</div>
+
+                    <div class="label">
+                        Minuten
+                    </div>
+
+                </div>
+
+                <div class="countdown-card">
+
+                    <div id="sekunden" class="zahl">0</div>
+
+                    <div class="label">
+                        Sekunden
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- Hauptinhalt -->
+    <!-- ===================== -->
+    <!-- Hauptseite -->
+    <!-- ===================== -->
 
     <div id="main-content" style="display:none;">
 
         <div class="container">
 
-            <h1>🎂 Geburtstags-Schatzsuche 🎂</h1>
+            <h1>Geburtstags-Schatzsuche</h1>
 
-            <p>Liebe Ilina,</p>
+            <p class="intro">
+                Liebe Ilina,
+            </p>
 
-            <p>
-                beantworte die folgenden Fragen und finde den Schatz. ❤️
+            <p class="intro">
+                beantworte die folgenden Fragen und finde den Schatz.
             </p>
 
             <div class="quiz">
 
-                <p><strong>1. Lieblingsblume?</strong></p>
-                <input type="text" id="antwort1">
+                <div class="frage">
 
-                <p><strong>2. Ort unseres ersten Treffens?</strong></p>
-                <input type="text" id="antwort2">
+                    <label>
+                        1. Lieblingsblume?
+                    </label>
 
-                <p><strong>3. Lieblings-Melonensorte?</strong></p>
-                <input type="text" id="antwort3">
+                    <input
+                        type="text"
+                        id="antwort1"
+                        autocomplete="off">
 
-                <p><strong>4. Was hat meine Mama dir geschenkt?</strong></p>
-                <input type="text" id="antwort4">
+                </div>
 
-                <p><strong>5. Welches "Haustier" hast du von Anne bekommen?</strong></p>
-                <input type="text" id="antwort5">
+                <div class="frage">
 
-                <p><strong>6. Anne nennt dich gerne "Mein ...?"</strong></p>
-                <input type="text" id="antwort6">
+                    <label>
+                        2. Ort unseres ersten Treffens?
+                    </label>
 
-                <br><br>
+                    <input
+                        type="text"
+                        id="antwort2"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="frage">
+
+                    <label>
+                        3. Lieblings-Melonensorte?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="antwort3"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="frage">
+
+                    <label>
+                        4. Was hat meine Mama dir geschenkt?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="antwort4"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="frage">
+
+                    <label>
+                        5. Welches „Haustier“ hast du von Anne bekommen?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="antwort5"
+                        autocomplete="off">
+
+                </div>
+
+                <div class="frage">
+
+                    <label>
+                        6. Anne nennt dich gerne „Mein ...?“
+                    </label>
+
+                    <input
+                        type="text"
+                        id="antwort6"
+                        autocomplete="off">
+
+                </div>
 
                 <button onclick="pruefen()">
+
                     Antworten prüfen
+
                 </button>
 
             </div>
 
             <div id="truhe" style="display:none;">
 
-                <h2>🎉 Richtig gelöst, Ilina! 🎉</h2>
+                <h2>
+                    🎉 Richtig gelöst, Ilina! 🎉
+                </h2>
 
                 <p>
-                    Du hast alle Fragen richtig beantwortet und den Schatz gefunden.
+                    Du hast alle Fragen richtig beantwortet.
+                </p>
+
+                <p>
+                    Jetzt wartet dein Schatz auf dich.
                 </p>
 
                 <img
@@ -119,28 +237,44 @@
                     class="truhe-bild"
                     onclick="oeffnen()">
 
-                <p>
-                    Klicke auf die Schatztruhe, um dein Geschenk zu entdecken. ❤️
+                <p class="truhe-text">
+
+                    Klicke auf die Schatztruhe.
+
                 </p>
 
             </div>
 
             <div id="geschenk" style="display:none;">
 
-                <h2>🎉 Überraschung! 🎉</h2>
+                <h2>
+
+                    🌊 Überraschung 🌊
+
+                </h2>
 
                 <p>
-                    Hinter dieser Schatztruhe versteckt sich dein Geburtstagsgeschenk:
+
+                    Hinter dieser Schatztruhe versteckt sich dein Geburtstagsgeschenk.
+
                 </p>
 
-                <h3>🌊 Ein gemeinsames Wochenende am Meer 🌊</h3>
+                <h3>
+
+                    Ein gemeinsames Wochenende am Meer
+
+                </h3>
 
                 <p>
+
                     Du darfst dir einen Ort an der holländischen Küste aussuchen.
+
                 </p>
 
                 <p>
-                    Pack schon mal deine Strandtasche ein. ❤️
+
+                    Pack schon einmal deine Strandtasche. ❤️
+
                 </p>
 
             </div>
