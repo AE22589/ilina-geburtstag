@@ -10,6 +10,8 @@ const freigabeDatum =
 // COUNTDOWN
 // =====================================
 
+let countdownInterval;
+
 function updateCountdown() {
 
     const jetzt =
@@ -27,6 +29,10 @@ function updateCountdown() {
         document.getElementById(
             "main-content"
         ).style.display = "block";
+
+        clearInterval(
+            countdownInterval
+        );
 
         return;
     }
@@ -83,14 +89,15 @@ function updateCountdown() {
 
 updateCountdown();
 
-setInterval(
-    updateCountdown,
-    1000
-);
+countdownInterval =
+    setInterval(
+        updateCountdown,
+        1000
+    );
 
 
 // =====================================
-// VIBRATION HILFSFUNKTION
+// VIBRATION
 // =====================================
 
 function vibrate(pattern) {
@@ -175,8 +182,6 @@ function pruefen() {
 
     if (richtig) {
 
-        // Erfolgs-Vibration
-
         vibrate([
             150,
             100,
@@ -195,11 +200,7 @@ function pruefen() {
             behavior: "smooth"
         });
 
-    }
-
-    else {
-
-        // kurze Fehlervibration
+    } else {
 
         vibrate(200);
 
@@ -208,7 +209,6 @@ function pruefen() {
         );
     }
 }
-
 
 
 // =====================================
@@ -221,8 +221,6 @@ function oeffnen() {
         document.getElementById(
             "truheBild"
         );
-
-    // längere Vibration
 
     vibrate([
         120,
@@ -237,8 +235,6 @@ function oeffnen() {
 
     truheBild.style.transform =
         "scale(1.08)";
-
-
 
     setTimeout(() => {
 
@@ -257,37 +253,34 @@ function oeffnen() {
 }
 
 
-
 // =====================================
-// KLEINER EFFEKT FÜR EINGABEFELDER
+// INPUT EFFEKT
 // =====================================
 
-const inputs =
-    document.querySelectorAll(
-        "input"
-    );
+document
+    .querySelectorAll("input")
+    .forEach(input => {
 
-inputs.forEach(input => {
+        input.addEventListener(
+            "focus",
+            () => {
 
-    input.addEventListener(
-        "focus",
-        () => {
+                input.style.transform =
+                    "scale(1.01)";
+            }
+        );
 
-            input.style.transform =
-                "scale(1.01)";
-        }
-    );
+        input.addEventListener(
+            "blur",
+            () => {
 
-    input.addEventListener(
-        "blur",
-        () => {
+                input.style.transform =
+                    "scale(1)";
+            }
+        );
 
-            input.style.transform =
-                "scale(1)";
-        }
-    );
+    });
 
-});
 
 // =====================================
 // GEHEIMER ADMIN-ZUGANG
@@ -295,56 +288,74 @@ inputs.forEach(input => {
 
 let taps = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const titel =
-        document.querySelector(
-            ".countdown-box h1"
-        );
+        const titel =
+            document.querySelector(
+                ".countdown-box h1"
+            );
 
-    titel.addEventListener(
-        "click",
-        () => {
+        if (!titel) {
+            return;
+        }
 
-            taps++;
+        titel.addEventListener(
+            "click",
+            () => {
 
-            if (taps >= 5) {
+                taps++;
 
-                const code =
-                    prompt(
-                        "Admin-Code eingeben"
-                    );
+                if (taps >= 5) {
 
-                if (
-                    code ===
-                    "ilina2026admin"
-                ) {
+                    const code =
+                        prompt(
+                            "Admin-Code eingeben"
+                        );
 
-                    document.getElementById(
-                        "countdown-screen"
-                    ).style.display = "none";
+                    if (
+                        code ===
+                        "ilina2026admin"
+                    ) {
 
-                    document.getElementById(
-                        "main-content"
-                    ).style.display = "block";
+                        clearInterval(
+                            countdownInterval
+                        );
 
-                } else {
+                        document.getElementById(
+                            "countdown-screen"
+                        ).style.display =
+                            "none";
 
-                    alert(
-                        "Falscher Code"
-                    );
+                        document.getElementById(
+                            "main-content"
+                        ).style.display =
+                            "block";
+
+                        window.scrollTo(
+                            0,
+                            0
+                        );
+
+                    } else {
+
+                        alert(
+                            "Falscher Code"
+                        );
+                    }
+
+                    taps = 0;
                 }
 
-                taps = 0;
+                setTimeout(() => {
+
+                    taps = 0;
+
+                }, 3000);
+
             }
+        );
 
-            setTimeout(() => {
-
-                taps = 0;
-
-            }, 3000);
-
-        }
-    );
-
-});
+    }
+);
