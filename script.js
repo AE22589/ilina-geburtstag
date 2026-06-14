@@ -288,3 +288,63 @@ inputs.forEach(input => {
     );
 
 });
+
+// =====================================
+// GEHEIMER ADMIN-ZUGANG
+// =====================================
+
+let taps = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const titel =
+        document.querySelector(
+            ".countdown-box h1"
+        );
+
+    titel.addEventListener(
+        "click",
+        () => {
+
+            taps++;
+
+            if (taps >= 5) {
+
+                const code =
+                    prompt(
+                        "Admin-Code eingeben"
+                    );
+
+                if (
+                    code ===
+                    "ilina2026admin"
+                ) {
+
+                    document.getElementById(
+                        "countdown-screen"
+                    ).style.display = "none";
+
+                    document.getElementById(
+                        "main-content"
+                    ).style.display = "block";
+
+                } else {
+
+                    alert(
+                        "Falscher Code"
+                    );
+                }
+
+                taps = 0;
+            }
+
+            setTimeout(() => {
+
+                taps = 0;
+
+            }, 3000);
+
+        }
+    );
+
+});
