@@ -178,8 +178,6 @@ function pruefen() {
 
         a6 === "HERZ";
 
-
-
     if (richtig) {
 
         vibrate([
@@ -188,17 +186,36 @@ function pruefen() {
             150
         ]);
 
-        const truhe =
+        const erfolg =
             document.getElementById(
-                "truhe"
+                "erfolg"
             );
 
-        truhe.style.display =
+        erfolg.style.display =
             "block";
 
-        truhe.scrollIntoView({
+        erfolg.scrollIntoView({
             behavior: "smooth"
         });
+
+        setTimeout(() => {
+
+            erfolg.style.display =
+                "none";
+
+            const truhe =
+                document.getElementById(
+                    "truhe"
+                );
+
+            truhe.style.display =
+                "block";
+
+            truhe.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 2200);
 
     } else {
 
@@ -209,7 +226,6 @@ function pruefen() {
         );
     }
 }
-
 
 // =====================================
 // SCHATZTRUHE ÖFFNEN
