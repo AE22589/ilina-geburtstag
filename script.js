@@ -239,25 +239,47 @@ function oeffnen() {
         );
 
     vibrate([
-        120,
-        80,
-        120,
-        80,
-        250
-    ]);
+    120,
+    80,
+    120,
+    80,
+    250
+]);
 
-    truheBild.src =
-        "truhe-offen.png";
+if (typeof confetti === "function") {
+
+    confetti({
+
+        particleCount: 120,
+
+        spread: 90,
+
+        origin: {
+            y: 0.6
+        }
+
+    });
+}
+
+truheBild.src =
+    "truhe-offen.png";
 
     truheBild.style.transform =
         "scale(1.08)";
 
     setTimeout(() => {
 
-        document.getElementById(
-            "geschenk"
-        ).style.display =
-            "block";
+const geschenk =
+    document.getElementById(
+        "geschenk"
+    );
+
+geschenk.style.display =
+    "block";
+
+geschenk.classList.add(
+    "geschenk-animation"
+);
 
         document.getElementById(
             "geschenk"
