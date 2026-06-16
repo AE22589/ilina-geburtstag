@@ -203,17 +203,19 @@ function pruefen() {
             erfolg.style.display =
                 "none";
 
-            const truhe =
+            const puzzle =
                 document.getElementById(
-                    "truhe"
+                    "puzzle"
                 );
 
-            truhe.style.display =
+            puzzle.style.display =
                 "block";
 
-            truhe.scrollIntoView({
+            puzzle.scrollIntoView({
                 behavior: "smooth"
             });
+
+            puzzleStarten();
 
         }, 2200);
 
@@ -225,6 +227,247 @@ function pruefen() {
             "Mindestens eine Antwort stimmt noch nicht 😊"
         );
     }
+}
+
+// =====================================
+// PUZZLE
+// =====================================
+
+let puzzleReihenfolge = [];
+
+let ausgewaehlt = null;
+
+const puzzleLoesung = [
+    0,1,2,
+    3,4,5,
+    6,7,8
+];
+
+function puzzleStarten() {
+
+    const puzzle =
+        document.getElementById(
+            "puzzle-grid"
+        );
+
+    puzzle.innerHTML = "";
+
+    puzzleReihenfolge = [
+        0,1,2,
+        3,4,5,
+        6,7,8
+    ];
+
+    puzzleReihenfolge.sort(
+        () => Math.random() - 0.5
+    );
+
+    puzzleReihenfolge.forEach(
+        (teil, index) => {
+
+            const feld =
+                document.createElement(
+                    "div"
+                );
+
+            feld.className =
+                "puzzle-tile";
+
+            feld.dataset.index =
+                index;
+
+            feld.dataset.teil =
+                teil;
+
+            feld.style.backgroundImage =
+                'url("wir.jpeg")';
+
+            feld.style.backgroundSize =
+                "300% 300%";
+
+            const x =
+                teil % 3;
+
+            const y =
+                Math.floor(
+                    teil / 3
+                );
+
+            feld.style.backgroundPosition =
+                `${x * 50}% ${y * 50}%`;
+
+            feld.addEventListener(
+                "click",
+                puzzleKlick
+            );
+
+            puzzle.appendChild(
+                feld
+            );
+        }
+    );
+}
+
+function puzzleKlick(event) {
+
+    const feld =
+        event.target;
+
+    if (
+        ausgewaehlt === null
+    ) {
+
+        ausgewaehlt =
+            feld;
+
+        feld.classList.add(
+            "puzzle-selected"
+        );
+
+        return;
+    }
+
+    if (
+        ausgewaehlt === feld
+    ) {
+
+        feld.classList.remove(
+            "puzzle-selected"
+        );
+
+        ausgewaehlt = null;
+
+        return;
+    }
+
+    const teil1 =
+        ausgewaehlt.dataset.teil;
+
+    const teil2 =
+        feld.dataset.teil;
+
+    ausgewaehlt.dataset.teil =
+        teil2;
+
+    feld.dataset.teil =
+        teil1;
+
+    puzzleBildAktualisieren(
+        ausgewaehlt
+    );
+
+    puzzleBildAktualisieren(
+        feld
+    );
+
+    ausgewaehlt.classList.remove(
+        "puzzle-selected"
+    );
+
+    ausgewaehlt = null;
+
+    puzzlePruefen();
+}
+
+function puzzleBildAktualisieren(
+    feld
+) {
+
+    const teil =
+        Number(
+            feld.dataset.teil
+        );
+
+    const x =
+        teil % 3;
+
+    const y =
+        Math.floor(
+            teil / 3
+        );
+
+    feld.style.backgroundPosition =
+        `${x * 50}% ${y * 50}%`;
+}
+
+function puzzlePruefen() {
+
+    const felder =
+        document.querySelectorAll(
+            ".puzzle-tile"
+        );
+
+    let geloest = true;
+
+    felder.forEach(
+        (feld, index) => {
+
+            if (
+                Number(
+                    feld.dataset.teil
+                ) !== index
+            ) {
+
+                geloest = false;
+            }
+        }
+    );
+
+    if (!geloest) {
+        return;
+    }
+
+    vibrate([
+        200,
+        100,
+        200
+    ]);
+
+    const puzzle =
+        document.getElementById(
+            "puzzle"
+        );
+
+    puzzle.innerHTML = `
+
+        <h2>
+
+            ✨ Perfekt! ✨
+
+        </h2>
+
+        <p>
+
+            Du hast das letzte Rätsel gelöst.
+
+        </p>
+
+        <p>
+
+            Der Weg zum Schatz ist nun frei. ❤️
+
+        </p>
+
+    `;
+
+    setTimeout(() => {
+
+        puzzle.style.display =
+            "none";
+
+        const truhe =
+            document.getElementById(
+                "truhe"
+            );
+
+        truhe.style.display =
+            "block";
+
+        truhe.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 1800);
 }
 
 // =====================================
