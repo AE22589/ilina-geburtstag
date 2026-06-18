@@ -768,7 +768,7 @@ button:hover {
 
     #countdown-screen {
 
-        padding: 10px;
+        padding: 20px 10px;
     }
 
     .countdown-box {
@@ -778,79 +778,87 @@ button:hover {
 
     .countdown-box h1 {
 
-        font-size: 1.5rem;
+        font-size: 2rem;
 
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     .einleitung {
 
-        font-size: 0.85rem;
+        font-size: 0.95rem;
 
-        margin: 4px auto;
+        margin: 8px auto;
     }
 
     .countdown-box h2 {
 
-        margin-top: 10px;
-
-        margin-bottom: 0;
+        margin-top: 20px;
+        margin-bottom: 5px;
     }
 
     .countdown-box h3 {
 
-        margin: 5px 0 10px 0;
-
-        font-size: 0.95rem;
+        margin-top: 0;
+        margin-bottom: 15px;
     }
 
     .countdown-grid {
 
-        display: flex;
+        display: grid;
 
-        gap: 5px;
+        grid-template-columns: repeat(4, 1fr);
 
-        width: 100%;
+        gap: 8px;
+
+        margin-top: 20px;
     }
 
     .countdown-card {
 
-        flex: 1;
+        padding: 12px 6px;
 
-        min-width: 0;
-
-        padding: 8px 2px;
-
-        border-radius: 12px;
+        border-radius: 14px;
     }
 
     .zahl {
 
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 
     .label {
 
-        font-size: 0.5rem;
+        font-size: 0.65rem;
 
-        letter-spacing: 0;
-
-        margin-top: 3px;
+        margin-top: 5px;
     }
 
     .container {
 
-        padding: 20px;
+        padding: 22px;
     }
 
-    .beach-foto {
+    /* ========================= */
+    /* PUZZLE HANDY */
+    /* ========================= */
 
-        border-radius: 18px;
+    #puzzle {
+
+        padding: 15px;
     }
 
-    .foto-text {
+    #puzzle-grid {
 
-        font-size: 1rem;
+        width: 100%;
+
+        max-width: 260px;
+
+        margin: 25px auto;
+    }
+
+    .puzzle-tile {
+
+        min-width: 0;
+        min-height: 0;
     }
 }
 
@@ -858,32 +866,37 @@ button:hover {
 
     .countdown-box h1 {
 
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
 
     .einleitung {
 
-        font-size: 0.78rem;
+        font-size: 0.9rem;
     }
 
     .zahl {
 
-        font-size: 1rem;
+        font-size: 1.6rem;
     }
 
     .label {
 
-        font-size: 0.45rem;
+        font-size: 0.6rem;
     }
 
     .countdown-card {
 
-        padding: 6px 1px;
+        padding: 10px 4px;
     }
 
-    .foto-text {
+    .countdown-grid {
 
-        font-size: 0.9rem;
+        gap: 6px;
+    }
+
+    #puzzle-grid {
+
+        max-width: 220px;
     }
 }
 /* ================================= */
