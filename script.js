@@ -438,13 +438,19 @@ function puzzlePruefen() {
 
         <p>
 
-            Du hast das letzte Rätsel gelöst.
+            Du hast unser Bild wieder zusammengesetzt.
 
         </p>
 
         <p>
 
-            Der Weg zum Schatz ist nun frei. ❤️
+            Doch die Schatztruhe ist noch verschlossen.
+
+        </p>
+
+        <p>
+
+            Ein neugieriger Strandkrebs hat den Schlüssel zur Schatztruhe stibitzt... 🦀
 
         </p>
 
@@ -455,19 +461,192 @@ function puzzlePruefen() {
         puzzle.style.display =
             "none";
 
-        const truhe =
+        const krebs =
             document.getElementById(
-                "truhe"
+                "krebs"
             );
 
-        truhe.style.display =
+        krebs.style.display =
             "block";
 
-        truhe.scrollIntoView({
+        krebs.scrollIntoView({
             behavior: "smooth"
         });
 
-    }, 1800);
+        krebsStarten();
+
+    }, 2500);
+}
+// =====================================
+// KREBS-SPIEL
+// =====================================
+
+let richtigerKrebs = 7;
+
+let krebsBlinken = null;
+
+function krebsStarten() {
+
+    const grid =
+        document.getElementById(
+            "krebs-grid"
+        );
+
+    grid.innerHTML = "";
+
+    for (
+        let i = 0;
+        i < 12;
+        i++
+    ) {
+
+        const krebs =
+            document.createElement(
+                "div"
+            );
+
+        krebs.className =
+            "krebs-tile";
+
+        krebs.dataset.index =
+            i;
+
+        krebs.textContent =
+            "🦀";
+
+        krebs.addEventListener(
+            "click",
+            krebsKlick
+        );
+
+        grid.appendChild(
+            krebs
+        );
+    }
+
+    clearInterval(
+        krebsBlinken
+    );
+
+    krebsBlinken =
+        setInterval(() => {
+
+            const felder =
+                document.querySelectorAll(
+                    ".krebs-tile"
+                );
+
+            const krebs =
+                felder[
+                    richtigerKrebs
+                ];
+
+            if (!krebs) {
+                return;
+            }
+
+            krebs.textContent =
+                "✨";
+
+            setTimeout(() => {
+
+                if (krebs) {
+
+                    krebs.textContent =
+                        "🦀";
+                }
+
+            }, 250);
+
+        }, 2000);
+}
+
+function krebsKlick(event) {
+
+    const feld =
+        event.target;
+
+    const index =
+        Number(
+            feld.dataset.index
+        );
+
+    if (
+        index !==
+        richtigerKrebs
+    ) {
+
+        vibrate(150);
+
+        alert(
+            "Dieser Krebs hat den Schlüssel nicht 🦀"
+        );
+
+        return;
+    }
+
+   clearInterval(
+    krebsBlinken
+);
+
+vibrate([
+    200,
+    100,
+    200
+]);
+
+const krebsBereich =
+    document.getElementById(
+        "krebs"
+    );
+
+krebsBereich.innerHTML = `
+
+    <h2>
+
+        ✨ Schlüssel gefunden! ✨
+
+    </h2>
+
+    <p>
+
+        Du hast den kleinen Dieb entlarvt.
+
+    </p>
+
+    <p>
+
+        Der Schlüssel zur Schatztruhe ist wieder da.
+
+    </p>
+
+    <p>
+
+        Nun kann der Schatz endlich geöffnet werden. ❤️
+
+    </p>
+
+`;
+
+setTimeout(() => {
+
+    krebsBereich.style.display =
+        "none";
+
+    const truhe =
+        document.getElementById(
+            "truhe"
+        );
+
+    truhe.style.display =
+        "block";
+
+    truhe.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}, 2500);
+
 }
 
 // =====================================
