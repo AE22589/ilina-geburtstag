@@ -819,3 +819,43 @@ document.addEventListener(
 
     }
 );
+
+// =====================================
+// FLASCHENPOST
+// =====================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const flaschenpost =
+            document.getElementById(
+                "flaschenpost"
+            );
+
+        const videoBereich =
+            document.getElementById(
+                "video-bereich"
+            );
+
+        if (!flaschenpost) {
+            return;
+        }
+
+        flaschenpost.addEventListener(
+            "click",
+            () => {
+
+                flaschenpost.style.display =
+                    "none";
+
+                videoBereich.style.display =
+                    "block";
+
+                videoBereich.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        );
+    }
+);
